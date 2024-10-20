@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="main-content app-content">
+    <section>
+        <div class="section banner-4 banner-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-12 text-center">
+                        <div class="">
+                            <p class="mb-3 content-1 h5 text-white">Organization <span class="tx-info-dark">Listing</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9">
+                    <div class="row">
+                        {% for cooperative in cooperatives %}
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="position-relative"> 
+                                    {% if cooperative.cooperative_photo %}                                   
+                                    <a href="#">
+                                        <img class="card-img-top" src="{{ cooperative.cooperative_photo.url }}" alt="img">
+                                    </a>
+                                    {% else %}
+                                    <a href="#">
+                                        <img class="card-img-top" src="{% static 'assets/images/brand/collaboration.png' %}" alt="SACCO FPO" >
+                                    </a>
+                                    {% endif %}
+
+
+                                    
+                                
+                                    <span class="badge bg-primary blog-badge">{{ cooperative.organization_type }}</span>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5><a href="#">{{ cooperative.organization_name }}</a></h5>
+                                    <div class="tx-muted">{{ cooperative.registered_office_address }}: </div>
+                                    <div class="d-flex align-items-center pt-4 mt-auto">
+                                        <div class="avatar me-3 cover-image rounded-circle">
+                                            <img src="{% static 'assets/images/brand/together.png' %}" class="rounded-circle" alt="img" width="20">
+                                        </div>
+                                        <div>
+                                            <a href="javascript:void(0);" class="h6">{{ cooperative.secretariate_county }}</a> 
+                                            <small class="d-block tx-muted">{{ cooperative.registration_status }} -                                                
+                                                 {% if cooperative.is_automated is True %}
+                                                  <span class="badge bg-primary">Automated</span>
+                                                  {% else %}
+                                                  <span class="badge bg-secondary ">Not Automated</span>
+                                                  {% endif %}                                              
+                                                </small> 
+                                        </div>
+                                        <div class="ms-auto">
+                                            <a href="javascript:void(0)" class="icon d-inline-block tx-muted"><i class="fe fe-heart me-1 rounded-circle p-2 bg-gray-200 tx-muted"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% empty %}
+
+                        <p>No cooperatives found.</p>
+
+                        {% endfor %}
+
+
+                        
+
+
+
+                    </div>
+                    <!-- COL-END -->
+                    <div class="mb-9">
+                        <div class="float-end">
+
+
+                            <div class="pagination">
+                                {% if is_paginated %}
+                                    <span class="step-links">
+                                        {% if page_obj.has_previous %}
+                                            <a href="?page=1">&laquo; first</a>
+                                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                        {% endif %}
+                        
+                                        <span class="current">
+                                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                        </span>
+                        
+                                        {% if page_obj.has_next %}
+                                            <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                        {% endif %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}

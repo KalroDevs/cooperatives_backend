@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="horizontal" data-nav-style="menu-hover" data-theme-mode="light">
+{% load static %}
+<head>
+
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="KALRO">
+    <meta name="keywords"
+        content="SACCO, FPO, Projects, farmer producer organizations, cooperatives">
+
+    <!-- TITLE -->
+    <title>Projects SACCOs and FPOs </title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href=" {% static 'assets/images/brand/favicon.png' %}" type="image/x-icon">
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="{% static 'assets/libs/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
+
+    <!-- STYLE CSS -->
+    <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet" >
+
+    <!-- Simonwep-picker CSS -->
+    <link href="{% static 'assets/libs/@simonwep/pickr/themes/classic.min.css' %}" rel="stylesheet" >
+    <link href="{% static 'assets/libs/@simonwep/pickr/themes/monolith.min.css' %}" rel="stylesheet" >
+    <link href="{% static 'assets/libs/@simonwep/pickr/themes/nano.min.css' %}" rel="stylesheet" >
+
+    <!-- ICONS CSS -->
+    <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" >
+
+
+
+    <style>
+        .modal-content {
+            border-radius: 8px;
+            border: none;
+        }
+
+        .modal-header {
+            background-color: #fff;
+            color: black;
+            border-bottom: none;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+
+        .modal-body {
+            padding: 5px;
+            background-color: #ecf0f1;
+        }
+
+        /* Custom iframe styling */
+        #dynamicIframe {
+            border-radius: 8px;
+            border: 2px solid #3498db;
+        }
+
+        .modal-footer {
+            background-color: #ecf0f1;
+        }
+    </style>
+
+</head>
+
+<body class="main-body light-theme custom-page">
+
+ 
+
+
+    
+    <!-- Back-to-top -->
+    <a href="#top" id="back-to-top" class="back-to-top rounded-circle shadow all-ease-03 fade-in">
+        <i class="fe fe-arrow-up"></i>
+    </a>
+
+    <div class="page">
+
+        
+        <div class="head_menu_container">
+            <header class="top-menu">
+                <div class="container top-menu-brand px-0">
+    
+                    <ul class="nav list-unstyled align-items-center">
+                        <li><a href="tel:0800721741" class="nav-link d-flex"><i
+                                    class="bi bi-headset me-2"></i>Technical Support</a></li>
+                        <li>
+                            <a href="mailto:datahub@kalro.org" class="nav-link"><i class="bi bi-envelope-plus me-2"></i>datahub@kalro.org</a>
+                        </li>
+                    </ul>
+    
+                    <ul class="nav list-unstyled align-items-center">
+                        <li>
+                            <a href="javascript:void(0);" class="nav-link"><i class="bi bi-question-circle me-2"></i>Feedback</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link d-flex"><i class="bi bi-person me-2"></i>Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <header class="main-header" id="stickyHeader">
+    
+                <!-- Start::main-brand-header -->
+                <div class="main-brand-header">
+                    <div class="container brand-header-container">    
+                        <div class="d-flex align-items-center">
+                            <!-- Start::header-element -->
+                            <div class="header-element me-1">
+                                <!-- Start::header-link -->
+                                <a href="javascript:void(0);" class="sidemenu-toggle1 header-link" data-bs-toggle="sidebar">
+                                    <span class="open-toggle">
+                                        <i class="bi bi-text-indent-left header-link-icon"></i>
+                                    </span>
+                                </a>
+                                <!-- End::header-link -->
+                            </div>
+                            <!-- End::header-element -->
+                            <a href="index.html" class="brand-main">
+                                <img src="{% static 'assets/images/brand/agristack.png' %}" alt="img" class="desktop-logo logo-dark">
+                                <img src="{% static 'assets/images/brand/toggle-dark.png' %}" alt="img" class="mobile-logo mobile-dark mx-3">
+                                <img src="{% static 'assets/images/brand/agristack.png' %}" alt="img" class="desktop-logo logo-color">
+                                <img src="{% static 'assets/images/brand/toggle-color.png' %}" alt="img" class="mobile-logo mobile-color">
+                            </a>
+
+                            
+                        </div>
+                        <ul class="nav list-unstyled align-items-center">
+                            <li class="d-flex align-items-center position-relative me-md-4 me-2">
+                                <a href="tel:0800721741" class="stretched-link"></a>
+                                <span class="avatar bg-white-1 border rounded-circle tx-15 border-white-2 me-2"><i class="bi bi-telephone text-white"></i></span>
+                                <div class="d-none d-md-block">
+                                    <a href="javascript:void(0);" class="nav-link tx-15 p-0">Call to Us</a>
+                                    <a href="tel:0800721741" class="mb-0 nav-link p-0 tx-13 op-8 lh-sm">0800 721 741</a>
+                                </div>
+                            </li>
+                          
+                        </ul>
+                    </div>
+                </div>
+                <!-- End::main-brand-header -->
+    
+            </header>
+            <div class="sticky">
+                <!-- Start::app-sidebar -->
+                <aside class="app-sidebar" id="sidebar">
+    
+                    <div class="app-toggle-header">                
+                        <div class="header-element">
+                            <!-- Start::header-link -->
+                            <a href="javascript:void(0);" class="sidemenu-toggle header-link" data-bs-toggle="sidebar">
+                                <span class="close-toggle">
+                                    <i class="bi bi-x header-link-icon"></i>
+                                </span>
+                            </a>
+                            <!-- End::header-link -->
+                        </div>
+                        <!-- End::header-element -->
+                        <a href="index.html" class="brand-main">
+                            <img src="../assets/images/brand/agristack.png" alt="img" class="desktop-logo logo-dark">
+                            <img src="../assets/images/brand/agristack.png" alt="img" class="desktop-logo logo-color">
+                        </a>
+                    </div>
+    
+                    <!-- Start::main-sidebar -->
+                    <div class="main-sidebar container" id="sidebar-scroll">
+    
+                        <!-- Start::nav -->
+                        <nav class="main-menu-container nav nav-pills sub-open">
+                            <ul class="main-menu">
+    
+                                <!-- Start::slide -->
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">
+                                        <span class="side-menu__label">Home</span>    
+                                        <i class="fe fe-chevron-down side-menu__angle"></i>
+                                    </a>
+                                    <ul class="slide-menu child1 mega-slide-menu-onefr without-icon">
+                                        <li class="slide">
+                                            <a href="#" class="side-menu__item">
+                                                <i class="bi bi-house"></i>
+                                                <span class="fw-500 tx-15">Home</span>
+                                            </a>
+                                        </li>
+                                        <li class="slide">
+                                            <a href="#" class="side-menu__item">
+                                                <i class="bi bi-house"></i>
+                                                <span class="fw-500 tx-15">About</span>
+                                            </a>
+                                        </li>
+                                       
+                                    </ul>
+                                </li>
+                                <!-- End::slide -->
+    
+                                <!-- Start::slide -->
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">
+                                        <span class="side-menu__label">Mapping and Gradding</span>
+                                        <i class="fe fe-chevron-down side-menu__angle"></i>
+                                    </a>
+                                    <ul class="slide-menu child1 mega-slide-menu-onefr without-icon">
+                                        <li class="mega-menu">
+                                            <div class="">
+                                                <ul>
+                                                    <li>
+                                                        <p class="mb-3 d-flex align-items-center menu-label">
+                                                            <i class="bi bi-journal-text tx-primary tx-18 me-2"></i>
+                                                            <span class="tx-14 tx-primary">Registries</span>
+                                                        </p>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="{% url 'sacco_registry' %}" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span class="avatar header__dropavatar mb-2 bg-secondary-transparent rounded-circle">
+                                                                        <i class="bi bi-hdd-stack me-0 tx-secondary"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">Registries</h6>
+                                                                    <span class="tx-default tx-14">SACCO and FPO Listings</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                   
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span class="avatar header__dropavatar mb-2 bg-purple-transparent rounded-circle">
+                                                                        <i class="bi bi-gem me-0 tx-purple"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">APIs</h6>
+                                                                    <span class="tx-default tx-14">Aplication Programming Interface</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="">
+                                                <ul>
+                                                    <li>
+                                                        <p class="mb-3 d-flex align-items-center menu-label">
+                                                            <i class="bi bi-arrow-left-right tx-primary tx-18 me-2"></i>
+                                                            <span class="tx-14 tx-primary">Ungraded</span>
+                                                        </p>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span class="avatar header__dropavatar mb-2 bg-pink-transparent rounded-circle">
+                                                                        <i class="bi bi-arrow-right-circle me-0 tx-pink"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">SACCO</h6>
+                                                                    <span class="tx-default tx-14">Membership, Governance, Financials, Automation, Human resource </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span class="avatar header__dropavatar mb-2 bg-info-transparent rounded-circle">
+                                                                        <i class="bi bi-arrows-move me-0 tx-info"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">FPO</h6>
+                                                                    <span class="tx-default tx-14">Membership, Governance, Financials, Automation,  Production, Human resource </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="">
+                                                <ul>
+                                                    <li>
+                                                        <p class="mb-3 d-flex align-items-center menu-label">
+                                                            <i class="bi bi-plus-circle-dotted tx-primary tx-18 me-2"></i>
+                                                            <span class="tx-14 tx-primary">Graded</span>
+                                                        </p>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span class="avatar header__dropavatar mb-2 bg-primary-transparent rounded-circle">
+                                                                        <i class="bi bi-layers me-0 tx-primary"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <div class="flex-grow-1">
+                                                                        <h6 class="d-block mb-1">SACCO</h6>
+                                                                        <span class="tx-default tx-14">Membership, Governance, Financials, Automation, Human resource </span>
+                                                                    </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span class="avatar header__dropavatar mb-2 bg-danger-transparent rounded-circle">
+                                                                        <i class="bi bi-gear me-0 tx-danger"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">FPO</h6>
+                                                                    <span class="tx-default tx-14">Membership, Governance, Financials, Automation,  Productions, Human resource </span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                   
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- End::slide -->
+    
+                                <!-- Start::slide -->
+                                <li class="slide has-sub">
+                                    <a href="javascript:void(0);" class="side-menu__item">
+                                        <span class="side-menu__label">Transactional</span>
+                                        <i class="fe fe-chevron-down side-menu__angle"></i>
+    
+                                    </a>
+                                    <ul class="slide-menu child1 mega-slide-menu-onefr without-icon">
+                                        <li class="mega-menu">
+                                            <div class="">
+                                                <ul>
+                                                    <li>
+                                                        <p class="mb-3 d-flex align-items-center menu-label">
+                                                            <i class="bi bi-bar-chart tx-primary tx-18 me-2"></i>
+                                                            <span class="tx-14 tx-primary">SACCO</span>
+                                                        </p>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span class="avatar header__dropavatar mb-2 bg-secondary-transparent rounded-circle">
+                                                                        <i class="bi bi-wikipedia me-0 tx-danger"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">Membership <span
+                                                                            class="badge bg-danger blink-text">New</span></h6>
+                                                                    <span class="tx-default tx-14">SACCO Membership</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span
+                                                                        class="avatar header__dropavatar mb-2 rounded-circle bg-success-transparent">
+                                                                        <i class="bi bi-globe me-0 tx-success"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">Products</h6>
+                                                                    <span class="tx-default tx-14">SACCO Products</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="#" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span
+                                                                        class="avatar header__dropavatar mb-2 rounded-circle bg-success-transparent">
+                                                                        <i class="bi bi-globe me-0 tx-success"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">Finance</h6>
+                                                                    <span class="tx-default tx-14">SACCO Finance</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="">
+                                                <ul>
+                                                    <li>
+                                                        <p class="mb-3 d-flex align-items-center menu-label">
+                                                            <i class="bi bi-palette tx-primary tx-18 me-2"></i>
+                                                            <span class="tx-14 tx-primary">FPO</span>
+                                                        </p>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span
+                                                                        class="avatar header__dropavatar mb-2 rounded-circle bg-purple-transparent">
+                                                                        <i class="bi bi-palette2 me-0 tx-purple"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">Membership</h6>
+                                                                    <span class="tx-default tx-14">FPO Membership</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span
+                                                                        class="avatar header__dropavatar mb-2 rounded-circle bg-danger-transparent">
+                                                                        <i class="bi bi-code me-0 tx-danger"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">Products</h6>
+                                                                    <span class="tx-default tx-14">FPO Products</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slide">
+                                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                            <div class="d-lg-flex align-items-start">
+                                                                <div class="me-3">
+                                                                    <span
+                                                                        class="avatar header__dropavatar mb-2 rounded-circle bg-info-transparent">
+                                                                        <i class="bi bi-emoji-smile me-0 tx-info"></i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="flex-grow-1">
+                                                                    <h6 class="d-block mb-1">Finace</h6>
+                                                                    <span class="tx-default tx-14">FPO Finance</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- End::slide -->
+    
+    
+                            </ul>
+                            <div class="d-xl-flex d-lg-none d-grid gap-2 text-center">
+                                <a href="{% url 'register' %}" class="btn btn-secondary min-w-fit-content">Register</a>
+
+                                <form method="POST" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-light login-btn min-w-fit-content">Logout</button>
+                                </form>
+                             </div>
+                    
+                        </nav>
+                        <!-- End::nav -->
+    
+                    </div>
+                    <!-- End::main-sidebar -->
+    
+                </aside>
+                <!-- End::app-sidebar -->
+            </div>
+        </div>
+        {% block content %}
+        <!-- Content from child templates will be inserted here -->
+        {% endblock %}
+
+        <!-- Start::footer -->
+        <footer class="footer bg-primary mt-auto text-white position-relative">
+            <div class="py-5">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"> 
+                              <a href="#" class="d-inline-block mb-3"><img src="{% static 'assets/images/brand/partners.png' %}" alt="img"></a>
+                              <p class="mb-4 op-8 fw-light">
+                                  Empowering Farmers, Building Communities
+                              </p>
+                              <ul class="list-unstyled mb-0">
+                                  <li class="list-item mb-2"><a href="#" class="footer-link"><i class="bi bi-telephone me-3 tx-18"></i>0800-721-741</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link"><i class="bi bi-envelope-plus me-3 tx-18"></i>info@kalro.org</a></li>
+                                  <li class="list-item"><a href="#" class="footer-link"><i class="bi bi-geo-alt me-3 tx-18"></i>Nairobi, Kenya </a></li>
+                              </ul>
+                              <div class="footer-btn-list d-flex align-items-center mt-4">
+                                  <a href="javascript:void(0);" class="footer-btn btn btn-icon btn-info-dark rounded-circle me-2"><i class="bi bi-facebook"></i></a>
+                                  <a href="javascript:void(0);" class="footer-btn btn btn-icon btn-info-dark rounded-circle me-2"><i class="bi bi-linkedin"></i></a>
+                                  <a href="javascript:void(0);" class="footer-btn btn btn-icon btn-info-dark rounded-circle me-2"><i class="bi bi-instagram"></i></a>
+                                  <a href="javascript:void(0);" class="footer-btn btn btn-icon btn-info-dark rounded-circle"><i class="bi bi-twitter"></i></a>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                              <h4 class="text-white">Services</h4>
+                              <ul class="list-unstyled footer-icon">
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">SACCO Registries</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">FPO Registries</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Fiancial Perfomance</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Loan Analysis</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Grants to SACCOs</a></li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                              <h4 class="text-white">Farmers</h4>
+                              <ul class="list-unstyled footer-icon">
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Common Interest Groups</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Vulnerable and Marginalized Groups</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Indigenous People</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Value Chains</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Applying for a Loan</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Loan Terms and Conditions</a></li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+                            
+                              <h4 class="text-white">Support</h4>
+                              <ul class="list-unstyled footer-icon">
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Impact Stories</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Ranking SACCO Perfomance</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Ranking FPO Perfomance</a></li>
+                                  <li class="list-item mb-2"><a href="#" class="footer-link">Report Abuse</a></li>
+                              </ul>
+                          </div>
+                      </div>
+  
+                  </div>
+              </div>
+              <div class="py-3 border-top border-white-2">
+                  <div class="container">
+                      <div class="row align-items-center">
+                         
+                          <div class="col-lg-5">
+                              <ul class="list-unstyled d-sm-flex mb-0 justify-content-lg-end mt-3 mt-lg-0 ">
+                                  <li class="list-item"><a href="#" class="footer-link px-3 border-end border-white-2 op-8">Terms of Service</a></li>
+                                  <li class="list-item"><a href="#" class="footer-link px-3 border-end border-white-2 op-8">Privacy Policy</a></li>
+                                  <li class="list-item"><a href="#" class="footer-link px-3 op-8">Legal</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="py-3 border-top border-white-2 text-center">
+                  <div class="container">
+                      <span class="tx-14 op-8">
+                          Copyright &#169;
+                          <span id="year">2024</span>
+                          <a href="index.html" class="text-white">Kenya Agricultural and Livestock Research Organization</a>
+                          Maintained 
+                          <span class="fa fa-heart tx-danger"></span>
+                          by 
+                          <a href="javascript:void(0);" class="text-white">KALRO ICT</a>
+                          All Rights Reserved
+                      </span>
+                  </div>
+              </div>
+          </footer>
+          <!-- End::footer -->
+  
+  
+      </div>
+  
+      <div id="cookieNotice" class="accept-cookies">
+          <div id="closeIcon">
+          </div>
+          <div class="title-wrap">
+              <h4>Cookies & Privacy Policy?</h4>
+          </div>
+          <div class="content-wrap">
+              <div class="msg-wrap">
+                  <p class="mb-0">We value your privacy and are committed to protecting your personal information. </p>
+                  <a href="#" class="tx-primary plain-link">More information</a>
+                  <div class="btn-wrap mt-3">
+                      <button class="btn btn-primary" onclick="acceptCookie();">Accept Cookies</button>
+                      <button class="btn btn-secondary" id="customize">Customise Cookies</button>
+                  </div>
+                  <div class="mt-3 d-none" id="customizeCookie">
+                      <h6>Select cookies to accept</h6>
+                      <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="check1" checked disabled>
+                                  <label class="form-check-label" for="check1">
+                                      Necessary
+                                  </label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="check2">
+                                  <label class="form-check-label" for="check2">
+                                      Site Preferences
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="check3">
+                                  <label class="form-check-label" for="check3">
+                                      Analytics
+                                  </label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="check4">
+                                  <label class="form-check-label" for="check4">
+                                      Marketing
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      
+  
+      <!-- Bootstrap js -->
+      <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  
+      <!-- Popper JS -->
+      <script src="{% static 'assets/libs/@popperjs/core/umd/popper.min.js' %}"></script>
+  
+      <!-- Defaultmenu JS -->
+      <script src="{% static 'assets/js/defaultmenu.js' %}"></script>
+  
+      <!-- Categorymenu JS -->
+      <script src="{% static 'assets/js/category-menu.js' %}"></script>
+      
+      <!-- Accept-cookie JS -->
+      <script src="{% static 'assets/js/cookies.js' %}"></script>
+  
+      <!-- Custom-switcher JS -->
+      <script src="{% static 'assets/js/custom-switcher.js' %}"></script>
+  
+      <!-- Sticky JS -->
+      <script src="{% static 'assets/js/sticky.js' %}"></script>
+  
+      <!-- Simonwep-picker JS -->
+      <script src="{% static 'assets/libs/@simonwep/pickr/pickr.es5.min.js' %}"></script>
+      <script src="{% static 'assets/js/picker.js' %}"></script>
+  
+      <!-- Show Password JS -->
+      <script src="{% static 'assets/js/show-password.js' %}"></script>
+  
+      <!-- CUSTOM JS -->
+      <script src="{% static 'assets/js/custom.js' %}"></script>
+  
+  </body>
+  
+  </html>
+  
