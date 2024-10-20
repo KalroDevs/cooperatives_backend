@@ -99,7 +99,7 @@ class BookKeeperRegister(models.Model):
     organization=models.ForeignKey(Cooperative, on_delete=models.CASCADE, blank=True, null=True,)
     book_keeper_name = models.CharField(max_length=100, blank=True, null=True)
     book_keeper_phone_number = models.CharField(max_length=15, blank=True, null=True)
-    book_keeper_national_id = models.CharField(blank=True, null=True)
+    book_keeper_national_id = models.CharField(max_length=20,blank=True, null=True)
     book_keeper_highest_education_qualification = models.CharField(max_length=255, choices=EDUCATION_CHOICES, blank=True, null=True,)
     course_considered_for_qualification = models.CharField(max_length=255, blank=True, null=True)
     is_contract_issued = models.BooleanField(default=False, blank=True, null=True)
