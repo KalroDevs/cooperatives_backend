@@ -21,6 +21,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+
 from users.views import *
 admin.site.site_header  =  "Projects SACCOs and FPOs Administration"  
 admin.site.site_title  =  "Projects SACCOs and FPOs Administration"
@@ -33,3 +35,7 @@ urlpatterns = [
     path('api/', include('cooperatives.urls')), 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
