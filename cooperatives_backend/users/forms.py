@@ -5,7 +5,7 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('username', 'email', 'role', 'position', 'first_name', 'last_name', 'gender', 'yob' )  # Add the role field here
+        fields = ('email', 'role', 'position', 'first_name', 'last_name', 'gender', 'yob' )  # Add the role field here
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

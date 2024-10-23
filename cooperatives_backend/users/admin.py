@@ -6,17 +6,17 @@ from .models import *
 # Customize the admin interface for CustomUser
 class CustomUserAdmin(UserAdmin):
     # Specify the fields to display in the list view
-    list_display = ('username', 'email', 'role', 'is_staff', 'is_active')
+    list_display = ( 'email', 'role', 'is_staff', 'is_active')
     
     # Fields to search
-    search_fields = ('username', 'email')
+    search_fields = ('email', 'role', 'is_staff', 'is_active')
     
     # Fields to filter by
     list_filter = ('is_staff', 'is_active', 'role', 'county', 'position')
     
     # Define fieldsets to show in the detailed view
     fieldsets = (
-        (None, {'fields': ('username', 'email', 'password')}),
+        (None, {'fields': ('email', 'password')}),
         ('Permissions', {'fields': ('is_staff', 'is_active', 'role')}),
         ('Important dates', {'fields': ('last_login',)}),
         ('More', {'fields': ('position','county',)}),
@@ -26,12 +26,12 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'email', 'password1', 'password2', 'role', 'county', 'position', 'is_staff', 'is_active')}
+            'fields': ('email', 'password1', 'password2', 'role', 'county', 'position', 'is_staff', 'is_active')}
         ),
     )
     
     # Fields used for ordering in the admin view
-    ordering = ('username',)
+    ordering = ('email',)
 
 # Register the CustomUser model and CustomUserAdmin
 admin.site.register(CustomUser, CustomUserAdmin)
