@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1n&wrb4uwb&&9-*ljo3e@kb94k)15%$mt-48!r79b+%sk&gl0l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://cooperatives.kalro.org/", "https://app.powerbi.com/", "10.101.100.150", "127.0.0.1"]
+ALLOWED_HOSTS = ['cooperatives.kalro.org', 'app.powerbi.com', '10.101.100.150', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -157,3 +157,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://cooperatives.kalro.org', 'https://cooperatives.kalro.org', 'http://10.101.100.150',
+]
