@@ -11,6 +11,7 @@ urlpatterns = [
     path('redirect/', views.role_redirect, name='role_redirect'),
     path('register/', views.register_view, name='register'),  # registration   
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('dashboards/', views.dashboards, name='dashboards'),
     path('staff_dashboard/', views.national_dashboard, name='national_dashboard'),
     path('county_dashboard/', views.county_dashboard, name='county_dashboard'),
     path('fa_dashboard/', views.fa_dashboard, name='fa_dashboard'),

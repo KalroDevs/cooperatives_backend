@@ -79,14 +79,37 @@ def admin_dashboard(request):
     
 
 @login_required
+def dashboards(request):
+    if request.user.role == 'admin':
+        dashboards = Dashboards.objects.all() 
+        return render(request, 'home/admin_dashboard.html', {'dashboards': dashboards})
+    elif request.user.role == 'national':
+        dashboards = Dashboards.objects.all() 
+        return render(request, 'home/national_dashboard.html', {'dashboards': dashboards})
+    elif request.user.role == 'county':
+        dashboards = Dashboards.objects.filter(role='county') 
+        return render(request, 'home/county_dashboard.html', {'dashboards': dashboards})
+    elif request.user.role == 'fa':
+        dashboards = Dashboards.objects.filter(role='fa')
+        return render(request, 'home/fa_dashboard.html', {'dashboards': dashboards})
+    elif request.user.role == 'sp':
+        dashboards = Dashboards.objects.filter(role='sp')
+        return render(request, 'home/sp_dashboard.html', {'dashboards': dashboards})
+    elif request.user.role == 'os':
+        dashboards = Dashboards.objects.filter(role='os')
+        return render(request, 'home/sp_dashboard.html', {'dashboards': dashboards})
+    else:
+        return redirect('login')
+  
+
+
+@login_required
 def national_dashboard(request):
     if request.user.role == 'national':
         dashboards = Dashboards.objects.all() 
-        return render(request, 'home/national_dashboard.html', {'dashboards': dashboards})
+        return render(request, 'home/county_dashboard.html', {'dashboards': dashboards})
     else:
         return redirect('login')
-    
-
 @login_required
 def county_dashboard(request):
     if request.user.role == 'county':
