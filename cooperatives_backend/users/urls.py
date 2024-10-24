@@ -18,4 +18,7 @@ urlpatterns = [
 
 
     path('sacco_registry/', SaccoRegistry.as_view(), name='sacco_registry'),
+
+    path('home/', views.home, name='home'),
+    path('about/', views.about, name='about'),
 ]

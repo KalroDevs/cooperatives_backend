@@ -175,19 +175,19 @@
     
                                 <!-- Start::slide -->
                                 <li class="slide has-sub">
-                                    <a href="javascript:void(0);" class="side-menu__item">
+                                    <a href="{% url 'home'%}" class="side-menu__item">
                                         <span class="side-menu__label">Home</span>    
                                         <i class="fe fe-chevron-down side-menu__angle"></i>
                                     </a>
                                     <ul class="slide-menu child1 mega-slide-menu-onefr without-icon">
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">
+                                            <a href="{% url 'home'%}" class="side-menu__item">
                                                 <i class="bi bi-house"></i>
                                                 <span class="fw-500 tx-15">Home</span>
                                             </a>
                                         </li>
                                         <li class="slide">
-                                            <a href="#" class="side-menu__item">
+                                            <a href="{% url 'about'%}" class="side-menu__item">
                                                 <i class="bi bi-house"></i>
                                                 <span class="fw-500 tx-15">About</span>
                                             </a>
@@ -255,7 +255,7 @@
                                                         </p>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="#" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span class="avatar header__dropavatar mb-2 bg-pink-transparent rounded-circle">
@@ -270,7 +270,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="#" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span class="avatar header__dropavatar mb-2 bg-info-transparent rounded-circle">
@@ -295,7 +295,7 @@
                                                         </p>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="#" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span class="avatar header__dropavatar mb-2 bg-primary-transparent rounded-circle">
@@ -311,7 +311,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="#" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span class="avatar header__dropavatar mb-2 bg-danger-transparent rounded-circle">
@@ -351,7 +351,7 @@
                                                         </p>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="#" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span class="avatar header__dropavatar mb-2 bg-secondary-transparent rounded-circle">
@@ -367,7 +367,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="#" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span
@@ -383,7 +383,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="#" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span
@@ -409,7 +409,7 @@
                                                         </p>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span
@@ -425,7 +425,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span
@@ -441,7 +441,7 @@
                                                         </a>
                                                     </li>
                                                     <li class="slide">
-                                                        <a href="javascript:void(0);" class="side-menu__item">
+                                                        <a href="{% url 'national_dashboard' %}"" class="side-menu__item">
                                                             <div class="d-lg-flex align-items-start">
                                                                 <div class="me-3">
                                                                     <span
@@ -450,7 +450,7 @@
                                                                     </span>
                                                                 </div>
                                                                 <div class="flex-grow-1">
-                                                                    <h6 class="d-block mb-1">Finace</h6>
+                                                                    <h6 class="d-block mb-1">Finance</h6>
                                                                     <span class="tx-default tx-14">FPO Finance</span>
                                                                 </div>
                                                             </div>
@@ -466,12 +466,22 @@
     
                             </ul>
                             <div class="d-xl-flex d-lg-none d-grid gap-2 text-center">
-                                <a href="{% url 'register' %}" class="btn btn-secondary min-w-fit-content">Register</a>
 
-                                <form method="POST" action="{% url 'logout' %}">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-outline-light login-btn min-w-fit-content">Logout</button>
-                                </form>
+                                {% if user.is_authenticated %}
+                                    <form method="POST" action="{% url 'logout' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-outline-light login-btn min-w-fit-content">Logout</button>
+                                    </form>
+
+
+
+
+                                {% else %}
+                                    <a href="{% url 'login' %}" class="btn btn-secondary min-w-fit-content">Login</a>
+                                    <a href="{% url 'register' %}" class="btn btn-secondary min-w-fit-content">Register</a>
+
+
+                                {% endif %}
                              </div>
                     
                         </nav>

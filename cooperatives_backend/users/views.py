@@ -3,6 +3,23 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from cooperatives.models import *
 
+
+def home(request):
+    context = {
+        
+    }
+
+    return render(request, 'index.html', context)
+
+def about(request):
+    context = {
+        
+    }
+
+    return render(request, 'about.html', context)
+
+
+
 def login_view(request):
     if request.method == 'POST':
         email = request.POST['email']

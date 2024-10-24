@@ -19,96 +19,139 @@
 
     </section>
 
-    <section class="section">
+
+
+
+
+
+    <section class="section bg-gray-100 bg-pattern-1" id="plans">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-9">
-                    <div class="row">
-                        {% for cooperative in cooperatives %}
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="position-relative"> 
-                                    {% if cooperative.cooperative_photo %}                                   
-                                    <a href="#">
-                                        <img class="card-img-top" src="{{ cooperative.cooperative_photo.url }}" alt="img">
-                                    </a>
-                                    {% else %}
-                                    <a href="#">
-                                        <img class="card-img-top" src="{% static 'assets/images/brand/collaboration.png' %}" alt="SACCO FPO" >
-                                    </a>
-                                    {% endif %}
-
-
-                                    
-                                
-                                    <span class="badge bg-primary blog-badge">{{ cooperative.organization_type }}</span>
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h5><a href="#">{{ cooperative.organization_name }}</a></h5>
-                                    <div class="tx-muted">{{ cooperative.registered_office_address }}: </div>
-                                    <div class="d-flex align-items-center pt-4 mt-auto">
-                                        <div class="avatar me-3 cover-image rounded-circle">
-                                            <img src="{% static 'assets/images/brand/together.png' %}" class="rounded-circle" alt="img" width="20">
-                                        </div>
-                                        <div>
-                                            <a href="javascript:void(0);" class="h6">{{ cooperative.secretariate_county }}</a> 
-                                            <small class="d-block tx-muted">{{ cooperative.registration_status }} -                                                
-                                                 {% if cooperative.is_automated is True %}
-                                                  <span class="badge bg-primary">Automated</span>
-                                                  {% else %}
-                                                  <span class="badge bg-secondary ">Not Automated</span>
-                                                  {% endif %}                                              
-                                                </small> 
-                                        </div>
-                                        <div class="ms-auto">
-                                            <a href="javascript:void(0)" class="icon d-inline-block tx-muted"><i class="fe fe-heart me-1 rounded-circle p-2 bg-gray-200 tx-muted"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {% empty %}
-
-                        <p>No cooperatives found.</p>
-
-                        {% endfor %}
-
-
+            <div class="row justify-content-center">
+                <div class="col-xl-7">
+                    <div class="heading-section">
+                        <div class="heading-subtitle"><span class="tx-primary tx-16 fw-semibold">List of SACCOs, FPOs and Other Cooperatives</span></div>
                         
-
-
-
                     </div>
-                    <!-- COL-END -->
-                    <div class="mb-9">
-                        <div class="float-end">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card shadow-none mb-0">
+                        <div class="card-body p-0">
+                            <div class="table-responsive border br-7">
+                                <table class="table table-bordered pricing-table mb-0 table-hover border-hidden">
+                                    <thead>
+                                        <tr>
+                                            <th class="w-20p bg-primary-02 border-end border-white-2">
+                                                <div class="d-flex align-items-center">
+                                                   <div class="flex-grow-1 text-start">
+                                                        <p class="h5 mb-0 tx-primary">Photo</p>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <th class="bg-primary-04 border-end border-white-2">
+                                                <p class="h5 mb-1 text-white">Name</p>
+                                            </th>
+                                            <th class="bg-primary-06 border-end border-white-2">
+                                                <p class="h5 mb-1 text-white">Scope</p>
+                                            </th>
+                                            <th class="bg-primary-08 border-end border-white-2">
+                                                <p class="h5 mb-1 text-white">Type</p>
+                                            </th>
+                                            <th class="bg-primary">
+                                                <p class="h5 mb-1 text-white">County</p>
+                                            </th>
+                                            <th class="bg-primary-08 border-end border-white-2">
+                                                <p class="h5 mb-1 text-white">Registration Status</p>
+                                            </th>
+                                            <th class="bg-primary-08 border-end border-white-2">
+                                                <p class="h5 mb-1 text-white">Automation Status</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for cooperative in cooperatives %}
 
+                                        <tr>
+                                            <td class="pricing-feature fw-semibold">
+                                                        {% if cooperative.cooperative_photo %}                                   
+                                                        <a href="#">
+                                                            <img class="card-img-top" src="{{ cooperative.cooperative_photo.url }}" alt="Organization Image" height="60%", width="60%">
+                                                        </a>
+                                                        {% else %}
+                                                        <a href="#">
+                                                            <img class="card-img-top" src="{% static 'assets/images/brand/collaboration.png' %}" alt="Organization Image"   height="60%", width="60%">
+                                                        </a>
+                                                        {% endif %}
 
-                            <div class="pagination">
-                                {% if is_paginated %}
-                                    <span class="step-links">
-                                        {% if page_obj.has_previous %}
-                                            <a href="?page=1">&laquo; first</a>
-                                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                                        {% endif %}
-                        
-                                        <span class="current">
-                                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                                        </span>
-                        
-                                        {% if page_obj.has_next %}
-                                            <a href="?page={{ page_obj.next_page_number }}">next</a>
-                                            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                                        {% endif %}
-                                    </span>
-                                {% endif %}
+                                            </td>
+                                            <td>{{ cooperative.organization_name }}</td>
+                                            <td>{{ cooperative.scope }}</td>    
+                                            <td>{{ cooperative.organization_type }}</td>
+                                            <td>{{ cooperative.secretariate_county }}</td>
+                                            <td>{{ cooperative.registration_status }}</td>
+                                            <td>
+                                                {% if cooperative.is_automated is False %}
+                                                     <span class="badge bg-secondary">Not Automated</span>
+                                                {% else %}
+                                                    <span class="badge bg-primary ">Automated</span>
+                                                {% endif %} 
+
+                                            </td> 
+                                        </tr>
+                                        {% empty %}
+                                        <tr>
+                                            <td colspan="5">No organizations found.</td>
+                                                                                           
+                                        </small> 
+                                        </tr>
+                                        {% endfor %}
+
+                                     
+                                       
+                                       
+                                    </tbody>
+                                    
+                                </table>
                             </div>
-                               
-                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                
+                <div class="mb-9">
+                    <div class="float-end">
+
+
+                        <div class="pagination">
+                            {% if is_paginated %}
+                                <span class="step-links">
+                                    {% if page_obj.has_previous %}
+                                        <a href="?page=1">&laquo; first</a>
+                                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                    {% endif %}
+                    
+                                    <span class="current">
+                                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                    </span>
+                    
+                                    {% if page_obj.has_next %}
+                                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                                    {% endif %}
+                                </span>
+                            {% endif %}
+                        </div>
+                           
+                        </ul>
+                    </div>
+                </div>
+
              
             </div>
         </div>

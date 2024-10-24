@@ -221,7 +221,7 @@ class Dashboards(models.Model):
         ('fa', 'Funding Agency'),
         ('os', 'Other Stakeholders')
     )
-    title = models.CharField(max_length=255, unique=True, blank=True, null=True)
+    title = models.CharField(max_length=255, blank=True, null=True)
     role = models.CharField(max_length=255, choices=ROLE_CHOICES, blank=True, null=True,)
     link = models.CharField(max_length=512, blank=True, null=True)
     scope = models.ForeignKey(County, on_delete=models.CASCADE, blank=True, null=True,)

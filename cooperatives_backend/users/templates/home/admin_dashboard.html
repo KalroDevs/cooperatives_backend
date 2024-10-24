@@ -70,10 +70,10 @@
                                             <td>{{ dashboard.scope }}</td>
                                             <td>
 
-                                                {% if dashboard.published is True %}
-                                                <span class="badge bg-primary">Published</span>
+                                                {% if dashboard.publish is False %}
+                                                    <span class="badge bg-secondary">Not Published</span>
                                                 {% else %}
-                                                <span class="badge bg-secondary ">Not Published</span>
+                                                <span class="badge bg-primary ">Published</span>
                                                 {% endif %}  
                                             </td>
 
