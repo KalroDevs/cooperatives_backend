@@ -134,11 +134,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # If you want to serve static files in production
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",  # Add your static directory here
+# ]   static/vendor/fontawesome-free/css/
 STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Add your static directory here
+    os.path.join(BASE_DIR, 'static'),  # Make sure this path is correct
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is the filesystem path
