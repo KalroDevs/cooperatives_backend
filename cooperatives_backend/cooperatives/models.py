@@ -50,7 +50,7 @@ class Cooperative(models.Model):
     organization_type = models.CharField(max_length=255, choices=ORGANIZATION_TYPE_CHOICES, blank=True, null=True,)
     registration_status = models.CharField(max_length=255, choices=REG_CHOICES, blank=True, null=True,)
     registration_number = models.CharField(max_length=255, unique=True)
-    registration_date = models.DateField(null=True, blank=True, blank=True, null=True,)
+    registration_date = models.DateField(null=True, blank=True)
     registered_office_address = models.CharField(max_length=255,  null=True, blank=True)
     organization_name = models.CharField(max_length=255, unique=True)
     asp_organization_code = models.CharField(max_length=255, unique=True, null=True, blank=True)
