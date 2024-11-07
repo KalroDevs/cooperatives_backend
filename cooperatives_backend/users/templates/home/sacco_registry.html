@@ -10,7 +10,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-12 text-center">
                         <div class="">
-                            <p class="mb-3 content-1 h5 text-white">Organization <span class="tx-info-dark">Listing</span></p>
+                            <p class="mb-3 content-1 h5 text-white">Cooperatives <span class="tx-info-dark">Listing</span></p>
                         </div>
                     </div>
                 </div>
@@ -42,19 +42,14 @@
                                 <table class="table table-bordered pricing-table mb-0 table-hover border-hidden">
                                     <thead>
                                         <tr>
-                                            <th class="w-20p bg-primary-02 border-end border-white-2">
-                                                <div class="d-flex align-items-center">
-                                                   <div class="flex-grow-1 text-start">
-                                                        <p class="h5 mb-0 tx-primary">Photo</p>
-                                                    </div>
-                                                </div>
-                                            </th>
+                                            
                                             <th class="bg-primary-04 border-end border-white-2">
                                                 <p class="h5 mb-1 text-white">Name</p>
                                             </th>
-                                            <th class="bg-primary-06 border-end border-white-2">
-                                                <p class="h5 mb-1 text-white">Scope</p>
+                                            <th class="bg-primary-04 border-end border-white-2">
+                                                <p class="h5 mb-1 text-white">Registration Date</p>
                                             </th>
+                                            
                                             <th class="bg-primary-08 border-end border-white-2">
                                                 <p class="h5 mb-1 text-white">Type</p>
                                             </th>
@@ -72,24 +67,13 @@
                                     <tbody>
                                         {% for cooperative in cooperatives %}
 
-                                        <tr>
-                                            <td class="pricing-feature fw-semibold">
-                                                        {% if cooperative.cooperative_photo %}                                   
-                                                        <a href="#">
-                                                            <img class="card-img-top" src="{{ cooperative.cooperative_photo.url }}" alt="Organization Image" height="60%", width="60%">
-                                                        </a>
-                                                        {% else %}
-                                                        <a href="#">
-                                                            <img class="card-img-top" src="{% static 'assets/images/brand/collaboration.png' %}" alt="Organization Image"   height="60%", width="60%">
-                                                        </a>
-                                                        {% endif %}
-
-                                            </td>
-                                            <td>{{ cooperative.organization_name }}</td>
-                                            <td>{{ cooperative.scope }}</td>    
-                                            <td>{{ cooperative.organization_type }}</td>
-                                            <td>{{ cooperative.secretariate_county }}</td>
-                                            <td>{{ cooperative.registration_status }}</td>
+                                        <tr> 
+                                            
+                                            <td>{{ cooperative.organization_name|upper }}</td>
+                                            <td>{{ cooperative.registration_date }}</td>
+                                            <td>{{ cooperative.organization_type|upper }}</td>
+                                            <td>{{ cooperative.secretariate_county|upper }}</td>
+                                            <td>{{ cooperative.registration_status|upper }}</td>
                                             <td>
                                                 {% if cooperative.is_automated is False %}
                                                      <span class="badge bg-secondary">Not Automated</span>

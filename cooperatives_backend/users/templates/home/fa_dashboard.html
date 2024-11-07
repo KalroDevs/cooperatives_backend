@@ -26,9 +26,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7">
                     <div class="heading-section">
-                        <div class="heading-subtitle"><span class="tx-primary tx-16 fw-semibold">World Bank</span></div>
-                        <div class="heading-title">{{ request.user.username }} &nbsp; - &nbsp;<span class="tx-primary">{{ request.user.email }}</span></div>
-                        <div class="heading-description">{{ request.user.first_name }}</div>
+                        <div class="heading-subtitle"><b>Name:</b> {{ request.user.first_name }} &nbsp;{{ request.user.last_name }} &nbsp; &nbsp; <b>Email:</b> <span class="tx-primary tx-16 fw-semibold" >{{ request.user.email }}</span></div>
+                        <div class="heading-title">Scope: <span class="tx-primary">{{ request.user.county }}</span></div>
                     </div>
                 </div>
             </div>

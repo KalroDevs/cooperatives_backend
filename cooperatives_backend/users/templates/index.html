@@ -16,7 +16,9 @@
                                 <div class="card-body p-sm-6">
                                     <h3 class="mb-1">Login</h3>
                                     {% if error %}
-                                        <p>{{ error }}</p>
+                                    <hr />
+                                        <p style="color: red;">{{ error }}</p>
+                                        <hr />
                                     {% endif %}
                                     <p class="mb-4 tx-muted">Sign in to your account to continue.</p>
                                     <form class="form-horizontal" method="POST">

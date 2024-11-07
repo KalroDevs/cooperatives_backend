@@ -59,13 +59,17 @@ from .forms import CustomUserCreationForm
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
+        error= ""
         if form.is_valid():
             user = form.save()  # Save the user to the database
             login(request, user)  # Log in the user after registration
             return redirect('role_redirect')  # Redirect based on role
+        else:
+            error= "Registration unsuccessful"
     else:
         form = CustomUserCreationForm()
-    return render(request, 'register.html', {'form': form})
+        error= ""
+    return render(request, 'register.html', {'form': form, 'error': error})
 
 
 

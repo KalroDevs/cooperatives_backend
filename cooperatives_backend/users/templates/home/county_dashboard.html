@@ -26,9 +26,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7">
                     <div class="heading-section">
-                        <div class="heading-subtitle"><span class="tx-primary tx-16 fw-semibold">County</span></div>
-                        <div class="heading-title">{{ request.user.username }} &nbsp; - &nbsp;<span class="tx-primary">{{ request.user.email }}</span></div>
-                        <div class="heading-description">{{ request.user.first_name }}</div>
+                        <div class="heading-subtitle"><b>Name:</b> {{ request.user.first_name }} &nbsp;{{ request.user.last_name }} &nbsp; &nbsp; <b>Email:</b> <span class="tx-primary tx-16 fw-semibold" >{{ request.user.email }}</span></div>
+                        <div class="heading-title">Scope: <span class="tx-primary">{{ request.user.county }}</span></div>
                     </div>
                 </div>
             </div>
@@ -37,6 +36,7 @@
                     <div class="card shadow-none mb-0">
                         <div class="card-body p-0">
                             <div class="table-responsive border br-7">
+                                
                                 <table class="table table-bordered pricing-table mb-0 table-hover border-hidden">
                                     <thead>
                                         <tr>
@@ -48,10 +48,10 @@
                                                 </div>
                                             </th>
                                             <th class="bg-primary-04 border-end border-white-2">
-                                                <p class="h5 mb-1 text-white">Role</p>
+                                                <p class="h5 mb-1 text-white">Scope</p>
                                             </th>
                                             <th class="bg-primary-06 border-end border-white-2">
-                                                <p class="h5 mb-1 text-white">Scope</p>
+                                                <p class="h5 mb-1 text-white">Extend</p>
                                             </th>
                                             <th class="bg-primary-08 border-end border-white-2">
                                                 <p class="h5 mb-1 text-white">Published</p>
@@ -63,26 +63,24 @@
                                     </thead>
                                     <tbody>
                                         {% for dashboard in dashboards %}
-
+                                        {% if dashboard.role == request.user.role and dashboard.scope == request.user.county%}
                                         <tr>
                                             <td class="pricing-feature fw-semibold">{{ dashboard.title }}</td>
-                                            <td>{{ dashboard.role }}</td>
-                                            <td>{{ dashboard.scope }}</td>
+                                            <td>{{ dashboard.role|upper }}</td>
+                                            <td> {{ dashboard.scope|upper }}</td>                                            
                                             <td>
-
-                                                {% if dashboard.publish is False %}
+                                            {% if dashboard.publish is False %}
                                                 <span class="badge bg-secondary">Not Published</span>
                                             {% else %}
                                             <span class="badge bg-primary ">Published</span>
                                             {% endif %}   
                                             </td>
-
                                             <td>
                                                 <a href="{{ dashboard.link }}" class="btn btn-outline-primary openModal" data-id="{{ dashboard.id }}" data-link="{{ dashboard.link }}" data-bs-toggle="modal" data-bs-target="#myModal">Access Dashboard</a>
-
                                             </td>
 
                                         </tr>
+                                        {% endif %}
                                         {% empty %}
                                         <tr>
                                             <td colspan="5">No dashboards found.</td>

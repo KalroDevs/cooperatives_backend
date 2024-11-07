@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+from auditlog.registry import auditlog
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 
@@ -16,6 +16,8 @@ class County(models.Model):
 
     def __str__(self):
         return '%s' % self.name
+auditlog.register(County)
+
 
 class SubCounty(models.Model):
     id = models.CharField(max_length=100, primary_key=True)
@@ -29,7 +31,7 @@ class SubCounty(models.Model):
 
     def __str__(self):
         return '%s' % self.name
-
+auditlog.register(SubCounty)
 
 class Ward(models.Model):
     county_id = models.ForeignKey('County', on_delete=models.CASCADE)
@@ -44,7 +46,7 @@ class Ward(models.Model):
     def __str__(self):
         return '%s' % self.name
 
-
+auditlog.register(Ward)
 
 
 class CustomUserManager(BaseUserManager):
@@ -68,16 +70,18 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, password, **extra_fields)
 
+# auditlog.register(CustomUserManager)
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = (
         ('admin', 'Administrator'),
         ('national', 'National'),
         ('county', 'County'),        
-        ('sp', 'Service Provider'),
+        ('sp', 'Automation Service Provider'),
         ('fa', 'Funding Agency'),
         ('os', 'Other Stakeholders')
     )
+    
   
     GEN_CHOICES = (
         ('male', 'Male'),
@@ -94,9 +98,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'  # Use email to log in
     REQUIRED_FIELDS = []  # Username field is not required anymore
 
-    role = models.CharField(max_length=length, choices=ROLE_CHOICES, default="os")
+    role = models.CharField(max_length=length, choices=ROLE_CHOICES, default="county")
     allias = models.CharField(max_length=length, blank=True, null=True,)
-    county = models.ForeignKey(County, on_delete=models.CASCADE, related_name="counties", blank=True, null=True,)
+    county = models.ForeignKey(County, on_delete=models.CASCADE, blank=True, null=True,)
     position =  models.CharField(max_length=length, blank=True, null=True,)
     gender  = models.CharField(max_length=length, choices=GEN_CHOICES, blank=True, null=True,)
     yob =models.IntegerField(blank=True, null=True, default=1980)
@@ -104,3 +108,4 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+auditlog.register(CustomUser)

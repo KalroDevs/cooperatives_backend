@@ -1,6 +1,6 @@
 from django.db import models
 from users.models import County, SubCounty, Ward
-
+from auditlog.registry import auditlog
 
 class Cooperative(models.Model):
     REG_CHOICES = (
@@ -82,7 +82,7 @@ class Cooperative(models.Model):
     def __str__(self):
         return self.organization_name
 
-
+auditlog.register(Cooperative)
 
 
 class BookKeeperRegister(models.Model):
@@ -123,6 +123,7 @@ class BookKeeperRegister(models.Model):
 
     def __str__(self):
         return self.book_keeper_name
+auditlog.register(BookKeeperRegister)
 
 class AmountsDisbursedToOrganisations(models.Model):
     FINANCIAL_YEAR_CHOICES = (
@@ -149,6 +150,8 @@ class AmountsDisbursedToOrganisations(models.Model):
  
     def __str__(self):
         return self.organization.organization_name
+auditlog.register(AmountsDisbursedToOrganisations)
+
 
 class MemberRegister(models.Model):
     GEN_CHOICES = (
@@ -169,6 +172,8 @@ class MemberRegister(models.Model):
 
     def __str__(self):
         return self.full_name
+auditlog.register(MemberRegister)
+
 
 class MemberSavings(models.Model):
     organization=models.ForeignKey(Cooperative, on_delete=models.CASCADE, blank=True, null=True,) 
@@ -176,6 +181,7 @@ class MemberSavings(models.Model):
     member_savings = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     def __str__(self):
         return f"Member: {self.member}, Savings: {self.member_savings}"
+auditlog.register(MemberSavings)
 
 class LoanType(models.Model):
     org_loan_type_code = models.CharField(max_length=100)
@@ -187,6 +193,7 @@ class LoanType(models.Model):
 
     def __str__(self):
         return self.conventional_name
+auditlog.register(LoanType)
 
 class LoansIssued(models.Model):
     loan_code = models.CharField(max_length=100)
@@ -199,6 +206,8 @@ class LoansIssued(models.Model):
 
     def __str__(self):
         return self.loan_code
+auditlog.register(LoansIssued)
+
 
 class LoansPaid(models.Model):
     loan_code = models.CharField(max_length=100, blank=True, null=True)
@@ -210,7 +219,7 @@ class LoansPaid(models.Model):
 
     def __str__(self):
         return self.loan_code
-
+auditlog.register(LoansPaid)
 
 class Dashboards(models.Model):
     ROLE_CHOICES = (
@@ -228,3 +237,5 @@ class Dashboards(models.Model):
     publish = models.BooleanField(default=True, blank=True, null=True)
     def __str__(self):
         return self.link
+auditlog.register(Dashboards)    
+
