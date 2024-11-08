@@ -29,8 +29,8 @@ def login_view(request):
             login(request, user)
             return redirect('role_redirect')
         else:
-            return render(request, 'index.html', {'error': 'Invalid credentials'})
-    return render(request, 'index.html')
+            return render(request, 'login.html', {'error': 'Invalid credentials'})
+    return render(request, 'login.html')
 
 @login_required
 def role_redirect(request):
@@ -44,10 +44,10 @@ def role_redirect(request):
         dashboards = Dashboards.objects.filter(role='county') 
         return render(request, 'home/county_dashboard.html', {'dashboards': dashboards})
     elif request.user.role == 'fa':
-        dashboards = Dashboards.objects.filter(role='fa')
+        dashboards = Dashboards.objects.all() 
         return render(request, 'home/fa_dashboard.html', {'dashboards': dashboards})
     elif request.user.role == 'sp':
-        dashboards = Dashboards.objects.filter(role='sp')
+        dashboards = Dashboards.objects.all() 
         return render(request, 'home/sp_dashboard.html', {'dashboards': dashboards})
     else:
         return redirect('login')
@@ -94,10 +94,10 @@ def dashboards(request):
         dashboards = Dashboards.objects.filter(role='county') 
         return render(request, 'home/county_dashboard.html', {'dashboards': dashboards})
     elif request.user.role == 'fa':
-        dashboards = Dashboards.objects.filter(role='fa')
+        dashboards = Dashboards.objects.all() 
         return render(request, 'home/fa_dashboard.html', {'dashboards': dashboards})
     elif request.user.role == 'sp':
-        dashboards = Dashboards.objects.filter(role='sp')
+        dashboards = Dashboards.objects.all() 
         return render(request, 'home/sp_dashboard.html', {'dashboards': dashboards})
     elif request.user.role == 'os':
         dashboards = Dashboards.objects.filter(role='os')
