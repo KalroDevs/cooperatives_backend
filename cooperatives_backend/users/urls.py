@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 from .views import SaccoRegistry
 
 urlpatterns = [
-    path('', views.login_view, name='index'),
+    path('', views.home, name='index'),
     path('login/', views.login_view, name='login'),    
     # path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout_confirm.html', next_page='login'), name='logout'),
